@@ -5,7 +5,6 @@
 <h1>osTicket - Post-Install Configuration</h1>
 This tutorial outlines the post-install configuration of the open-source help desk ticketing system osTicket.<br />
 
-
 <h2>Environments and Technologies Used</h2>
 
 - Microsoft Azure (Virtual Machines/Compute)
@@ -18,89 +17,132 @@ This tutorial outlines the post-install configuration of the open-source help de
 
 <h2>Post-Install Configuration Objectives</h2>
 
-1. Configuring the database connection: You will need to specify the database server, username, password, and database name in the osTicket configuration file.
-
-2. Setting up email: osTicket uses email to send and receive tickets. You will need to configure the email settings in the osTicket configuration file, including the email server, port, username, and password.
-
-3. Configuring the staff and department: You will need to create staff and department accounts so that they can manage and respond to tickets. You can also configure the access level and permissions for the staff.
-
-4. Customizing the theme and language: You can customize the look and feel of the osTicket by installing and configuring different themes. You can also change the language of the osTicket interface.
-
-5. Configuring the ticket settings: You can set up different ticket settings such as the ticket auto-response, ticket auto-close and ticket auto-assignment.
-
-6. Setting up and configuring the plugins: osTicket has a variety of plugins that you can use to extend the functionality of the system, such as SLA, escalations and more.
-
-7. Testing and troubleshooting: It's important to test the osTicket installation to ensure that it's working properly and troubleshoot any issues that may arise.
-
-8. Backing up and securing the osTicket system: It's important to regularly backup your osTicket installation and secure the system against unauthorized access or data breaches.
-
+- Login to the osTicket Admin Panel
+- Congfire Roles
+- Configure Deparments
+- Configure Teams
+- Configure Help Topics
 
 <h2>Configuration Steps</h2>
-
+<p> Login to the osTicket Admin Panel. Below displays the tickets for admin/helpdesk User Interface (UI) that will reflect the tickets that are created by the End User ([http://localhost/osTicket/scp/login.php](http://localhost/osTicket/scp/login.php))
+</p>
 <p align="center">
-
+<img src="https://i.imgur.com/uzAA73f.png" height="65%" width="65%" alt="UI admin/help desk Tickets"/>
 </p>
 
-<p>
-
+<br />
+- <b>Configure</b> <a href="https://docs.osticket.com/en/latest/Admin/Agents/Roles.html">[Roles]</a>
+    <ol>
+  <li>Admin Panel -> Agents -> Roles</li>
+  <li>Supreme Admin</li>
+  </ol>
+<p align="center">
+<img src="https://i.imgur.com/Jw4EbMN.png" height="65%" width="65%" alt="UI to add Role"/>
 </p>
-</p>
-<p>
- 
-* We will configure new roles within the help desk. In order to do so go to Admin panel-> Agents-> Roles. We will create a Supreme Admin. 
-* Click on "Add new role" then enter the name of the new role. You can also modify any specific roles permissions. In this case since we are creating a Supreme Admin they will be given all permissions. Keep in mind roles are used to determine an agents permissions so not all agents will have unlimited access.
-* If you followed the steps correctly your screen should like something like this. As you can see we have successfully created the "Supreme Admin" role.
-</p>
-<img src="https://i.imgur.com/XHteqdt.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<p>Below we have entered <b>"Supreme Admin"</b> as the role</p>
+<p align="center">
+<img src="https://i.imgur.com/sJukhDR.png" height="65%" width="65%" alt="enter role name"/>
 </p>
 <br />
-<p>
+<p> Now we can enable the <a href="https://docs.osticket.com/en/latest/Features/Visibility%20Permissions.html">permissions</a> for this role and as the "Supreme Admin" we've enabled every possible permission available.  
+<p align="center">
+<img src="https://i.imgur.com/OgnLk0E.png" height="65%" width="65%" alt="list of permissions"/>
 </p>
+<hr>
 <p>
-
-* Select the "Departments" button in the agents tab. Here we will be able to create a new department. Each Agent is assigned to a specific department depending on their assigned role within the helpdesk. 
-* In this case, we will be creating the "System Administrators" department, this is where the Supreme Admins will be designated. Other specific settings such as SLAs, managers and other email settings can be set up in the departments tab. 
+  -<b>Configure</b> <a href="https://docs.osticket.com/en/latest/Admin/Agents/Departments.html">[Departments]</a>
+    <ol>
+    <li>Admin Panel -> Agents -> Departments</li>
+    <li> System Administrators</li>
+      </ol>
+</p>
+<p align="center"> 
+  <img src="https://i.imgur.com/WH7YRLn.png" height="65%" width="65%" alt="create department selection"/>
 </p>
 <br />
-<p>
-<img src="https://i.imgur.com/dGK0RVM.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<p align="center">
+<img src="https://i.imgur.com/44g5RJ2.png" height="65%" width="65%" alt="create department name"/>
+  </p>
+  <hr>
+  - <b><i>Configure </i></b> <a href="https://docs.osticket.com/en/latest/Admin/Agents/Teams.html">[Teams]</a>
+  <ol><li>Admin Panel -> Agents -> Teams</li>
+    <li>Level I Support </li>
+    <li>Level II Support </li>
+</ol>
+<p align="center">
+    <img src="https://i.imgur.com/M1ISoyE.png" height="65%" width="65%" alt="create department name"/>
+    </p>
+    <p align="center">
+    <img src="https://imgur.com/steRLxe.png" height="65%" width="65%" alt="create team"/>
+    </p>
+<p align="center">
+          <img src="https://i.imgur.com/xUwxacj.png" height="65%" width="65%" alt="dipslays current teams"/>
+    </p>
+-<b>Allow anyone to create tickets </b> in <a href="https://docs.osticket.com/en/latest/Admin/Settings/Users.html?highlight=registration">User Settings</a>
+    <ol>
+    <li>Admin Panel -> Settings -> User Settings </li>
+    <li>Registration Required: Require registration and login to create tickets -for this lab, we will leave it unchecked so that tickets can be created without restrictions/limitations</li>
+    </ol>
+    <p align="center"> 
+    <img src="https://i.imgur.com/uMx7BbE.png" height="65%" width="65%" alt="require registration checkbox option"/>
+         </p>
+  <hr>
+  - <b><i>Configure</b></i> <a href="https://docs.osticket.com/en/latest/Admin/Agents/Agents.html">[Agents (workers)]</a>
+    <ol>Admin Panel -> Agents -> Add New
+    <li>Jane</li>
+        <li>John </li>
+        </ol>
+  <p align="center">
+    <img src="https://i.imgur.com/pxwqK2W.png" height="70%" width="70%" alt="create agents"/>
+    </p>
+<p align="center">
+    <img src="https://i.imgur.com/Hp11jGk.png" height="65%" width="65%" alt="establish access"/>
+    </p>
+    <hr>
+    - <b><i>Configure</i></b> <a href="https://docs.osticket.com/en/latest/Agent/Users/User%20Directory.html">[Users (customers)]</a>
+    <ol>Agent Panel -> Users -> Add New
+        <li>Karen</li>
+    <li>Ken</li>
+</ol>
+<p align="center">
+    <img src="https://i.imgur.com/hukYViC.png" height="65%" width="65%" alt="agent panel new user"/>
+    </p>
+    <p align="center">
+    <img src="https://i.imgur.com/QihL6U3.png" height="65%" width="65%" alt="new user created"/>
+    </p>
+    <hr>
+    - <b><i>Configure</b></i> <a href="https://docs.osticket.com/en/latest/Admin/Manage/SLA%20Plans.html">[SLA]</a>
+    Admin Panel -> Manage -> SLA
+    <ol>
+    <li>Sev-A (1 hour, 24/7)</li>
+    <li>Sev-B (4 hours, 24/7)</li>
+    <li>Sev-C (8 hours, business hours)</li>
+    </ol>
+    <p align="center">
+    <img src="https://i.imgur.com/KH2b0nw.png" height="65%" width="65%" alt="add new SLA"/>
+    </p>
+    <p align="center">
+    <img src="https://i.imgur.com/NB5Ovwi.png" height="65%" width="65%" alt="add new SLA severity"/>
+    </p>
+<p align="center">
+    <img src="https://i.imgur.com/uDkD7Lv.png" height="65%" width="65%" alt="list of current SLA"/>
+    </p>
+<hr>
+- <b><i> Configure </b></i> <a href="https://docs.osticket.com/en/latest/Admin/Manage/Help%20Topic.html?highlight=help%20topics">Help Topics</a>
+     <h5>Admin Panel -> Manage -> Help Topics</h5>
+        <li> Business Critical Outage </li>
+        <li> Personal Computer Issues </li>
+        <li> Equipment Request </li>
+        <li> Password Reset </li>
+ <p align="center">
+    <img src="https://i.imgur.com/n44Un1L.png" height="65%" width="65%" alt="create new help topic"/>
 </p>
-<p>
-After configuring a new department we will set up a new team. Teams allow you to pull agents from different departments you can have an A team that has top technicians from specific departments. For example you can create a help topic that correlates with a product you produce, and assign it to a team of agents that specialize in that particular product. To set up a team go to Agents->Teams. A Level I support team has been created by default, in this example we will create a Level II Support Team. 
-</p>
-<br />
-<p>
-<img src="https://i.imgur.com/cYzWBD2.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Now that we have set up a new team we will create a new setting that will allow anyone to create tickets. Admin Panel->Settings->User Settings.
-
-</p>
-<br />
-<img src="https://i.imgur.com/H1q2Fdh.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-It is now time to create Agents. Agents are the employees of the helpdesk that actually work on solving tickets. Agents are assigned primary departments and given a primary role for tickets sent to their department. Agents can be given access to other departments other than their own, they can also have different roles depending on which department they are in. Permissions, Access, & Teams are be assigned in the Agents tab. 
-</p>
-<br />
-<img src="https://i.imgur.com/8WTOSre.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-After creating some agents we will create users. Users are customers that create tickets when they are having issues. A user is identified with their E-mail address. To create a user follow this path Agent Panel->Users->User Directory->Add new. 
-</p>
-<br />
-<img src="https://i.imgur.com/xOprA9f.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-SLAs Plans provide a length of time in which the help desk is expected to take in order to solve a specific ticket. SLA Plans are created by going to Admin Panel->Manage->SLA Plans. Each SLA has a schedule and within that schedule there is a grace period. In this example SEV-A has a 24/7 and a one hour grace period. 
-</p>
-<br />
-<img src="https://i.imgur.com/LpjCaLd.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Help topics help users categorize their tickets. In the example below we have made a help topic for "Business Critical Outage" this can be if customers cannot access mobile banking. 
-</p>
-<br />
-<img src="https://i.imgur.com/kB7rts2.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
+    <p align="center">
+    <img src="https://i.imgur.com/MOE3unk.png" height="65%" width="65%" alt="business critical outage"/>
+    </p>
+    <p align="center">
+    <img src="https://i.imgur.com/6dBcOCd.png" height="65%" width="65%" alt="personal computer issue"/>
+    </p>
+    <p>Below reflects all of the tickets that we've created</p>
+<p align="center">
+    <img src="https://i.imgur.com/RFC1bTH.png" height="65%" width="65%" alt="all tickets that have been created"/>
