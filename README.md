@@ -146,3 +146,4 @@ This tutorial outlines the post-install configuration of the open-source help de
     <p>Below reflects all of the tickets that we've created</p>
 <p align="center">
     <img src="https://i.imgur.com/RFC1bTH.png" height="65%" width="65%" alt="all tickets that have been created"/>
+    
